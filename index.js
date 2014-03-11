@@ -1,11 +1,18 @@
-module.exports = function(AnalyticsID) {
-  window.GoogleAnalyticsObject = 'ga';
-  window.ga = window.ga || function() {
-    (window.ga.q = window.ga.q || []).push(arguments);
-  };
-  window.ga.l = new Date();
+window.GoogleAnalyticsObject = 'ga';
+window.ga = window.ga || function() {
+  (ga.q = ga.q || []).push(arguments);
+};
+ga.l = new Date();
 
-  if (!AnalyticsID) return;
+var query = require('query');
+
+var el = query('meta[name="google-analytics"]');
+if (el) {
+  create(el.getAttribute('content'));
+}
+
+function create(id) {
+  if (!id) return;
 
   var s = document.createElement('script');
   s.async = true;
@@ -14,5 +21,7 @@ module.exports = function(AnalyticsID) {
   var m = document.getElementsByTagName('script')[0];
   m.parentNode.insertBefore(s, m);
 
-  ga('create', AnalyticsID);
-};
+  ga('create', id);
+}
+
+module.exports = ga;
