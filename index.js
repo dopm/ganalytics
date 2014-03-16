@@ -1,27 +1,26 @@
-window.GoogleAnalyticsObject = 'ga';
-window.ga = window.ga || function() {
-  (ga.q = ga.q || []).push(arguments);
-};
-ga.l = new Date();
-
 var query = require('query');
 
 var el = query('meta[name="google-analytics"]');
+var id;
 if (el) {
-  create(el.getAttribute('content'));
+  id = el.getAttribute('content');
 }
 
-function create(id) {
-  if (!id) return;
+(function(i, s, o, g, r, a, m) {
+  i['GoogleAnalyticsObject'] = r;
+  i[r] = i[r] || function() {
+    (i[r].q = i[r].q || []).push(arguments);
+  };
+  i[r].l = new Date();
+  a = s.createElement(o);
+  m = s.getElementsByTagName(o)[0];
+  a.async = 1;
+  a.src = g;
+  if (id) {
+    m.parentNode.insertBefore(a, m);
+  }
+})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-  var s = document.createElement('script');
-  s.async = true;
-  s.src = '//www.google-analytics.com/analytics.js';
-
-  var m = document.getElementsByTagName('script')[0];
-  m.parentNode.insertBefore(s, m);
-
-  ga('create', id);
-}
+ga('create', id);
 
 module.exports = ga;
