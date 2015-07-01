@@ -1,6 +1,6 @@
 var query = require('query');
 
-var el = query('meta[name="google-analytics"]');
+var el = query('meta[name="gnalytics"]');
 var id;
 if (el) {
   id = el.getAttribute('content');

@@ -5,9 +5,9 @@
 
 ## Installation
 
-  Install with [component(1)](http://component.io):
+  Install with [component(1)](http://http://component.github.io/):
 
-    $ component install yuehu/google-analytics
+    $ component install dopm/ganalytics
 
 ## API
 

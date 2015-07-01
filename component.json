@@ -1,6 +1,6 @@
 {
-  "name": "google-analytics",
-  "repo": "yuehu/google-analytics",
+  "name": "gnalytics",
+  "repo": "dopm/gnalytics",
   "description": "Google Analytics snippet.",
   "version": "0.0.1",
   "keywords": [],
